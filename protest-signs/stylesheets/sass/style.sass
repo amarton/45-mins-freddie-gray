@@ -1,0 +1,389 @@
+@import "mixins"
+@import "variables"
+@import "bourbon"
+
+/********* SITE STYLES ***********/
+
+$no-lightbox: 850px
+
+html
+	box-sizing: border-box
+
+*, *:before, *:after
+	box-sizing: inherit
+
+body
+	background-color: #222
+	&.frozen
+		overflow: hidden
+		@media (max-width: $no-lightbox)
+			overflow: auto
+
+#header
+	background-color: black
+	text-align: center
+	color: goldenrod
+	margin-top: 0px
+	padding: 60px 0
+	img
+		vertical-align: middle
+		margin: 0 15px
+		width: 150px
+		@media (max-width: 850px)
+			width: 130px
+		@media (max-width: 700px)
+			width: 110px
+		@media (max-width: 550px)
+			display: block
+			margin: 10px auto 5px auto
+	span
+		position: relative
+		top: 10px
+		@media (max-width: 550px)
+			top: 0
+
+#title			
+	font:
+		family: "Oswald", sans-serif
+		size: 60px
+	text-transform: uppercase
+	line-height: 1
+	margin-bottom: 20px	
+	@media (max-width: 850px)
+		font-size: 64px
+	@media (max-width: 700px)
+		font-size: 50px
+
+#subtitle
+	font:
+		family: "Oswald", sans-serif
+		size: 22px
+		weight: 300
+	text-transform: uppercase
+	line-height: 1
+	+links(white, none)
+	a:hover
+		color: goldenrod
+
+#grids
+	max-width: 1300px
+	margin: 20px auto
+	text-align: center
+
+#national
+	border-top: 1px solid #444
+	padding-top: 15px
+
+.grid
+	margin-bottom: 80px
+	min-height: 500px
+	header
+		font:		
+			family: "Oswald"
+			weight: 300
+			size: 22px
+		line-height: 1.5
+		color: goldenrod
+
+.grid-item
+	display: inline-block
+	vertical-align: top
+	margin: 4px 5px
+	margin: 10px 12px
+	position: relative
+	cursor: pointer
+	overflow: hidden
+	+size(200px)
+	img
+		width: 100%
+		display: block
+		// opacity: 0
+		// visibility: hidden
+		// +transition(all 0.4s)
+		// &.visible
+		// 	opacity: 1
+		// 	visibility: visible
+	@media (max-width: 650px)
+		+size(45%)
+	@media (max-width: 500px)
+		+size(90%)
+	@media (max-width: $no-lightbox)
+		overflow: visible
+		margin-bottom: 10px
+		cursor: default
+		height: auto
+	&:hover
+		.overlay, .expand
+			opacity: 1
+			visibility: visible
+		.expand
+			+transform(scale(1))
+		.share-tools
+			+transform(translateY(0))
+
+.mobile-caption
+	display: none
+	margin: 10px 0 10px 0
+	padding: 10px
+	font-family: "Lato", sans-serif
+	border-top: 1px solid #333
+	font-size: 14px
+	line-height: 1.4
+	text-align: left
+	color: white
+	@media (max-width: $no-lightbox)
+		display: block
+
+.mobile-credit
+	font-size: 12px
+	color: #999
+	margin-top: 10px
+
+
+
+.overlay
+	position: absolute
+	top: 0
+	left: 0
+	+size(100%)
+	background-color: rgba(0, 0, 0, 0.5)
+	z-index: 5
+	opacity: 0
+	visibility: hidden
+	+transition(all 0.5s)
+	@media (max-width: $no-lightbox)
+		display: none
+
+.expand
+	position: absolute
+	top: 30%
+	left: 0
+	width: 100%
+	z-index: 6
+	text-align: center
+	color: white
+	font-size: 50px
+	opacity: 0
+	visibility: hidden
+	+transition(all 0.5s)
+	+transform(scale(0.6))
+	@media (max-width: $no-lightbox)
+		display: none	
+
+.share-tools
+	position: absolute
+	bottom: 0
+	left: 0
+	width: 100%
+	z-index: 6
+	background-color: black
+	padding: 15px 0
+	//border-bottom: 2px solid $pink-2
+	color: #999999
+	font-size: 18px
+	+transition(all 0.5s)
+	+transform(translateY(100%))
+	text-align: center
+	span
+		display: inline-block
+		//float: left
+		//cursor: pointer
+		width: 25%
+		&:hover
+			color: goldenrod
+	a:link, a:visited, a:hover, a:active
+		color: #999999
+		text-decoration: none
+	a:hover
+		color: goldenrod
+	@media (max-width: $no-lightbox)
+		+transform(translateY(0%))
+		position: static
+		padding-bottom: 0
+		span
+			cursor: pointer
+
+#lightbox-overlay
+	position: fixed
+	top: 0
+	left: 0
+	+size(100%)
+	background-color: rgba(0,0,0,0.8)
+	z-index: 10
+	opacity: 0
+	visibility: hidden
+	+transition(all 0.5s)
+	&.visible
+		opacity: 1
+		visibility: visible	
+	@media (max-width: $no-lightbox)
+		display: none
+
+#lightbox
+	position: fixed
+	top: 10%
+	left: 0
+	width: 100%
+	text-align: center
+	z-index: 11
+	+transition(all 0.5s)
+	+transform(scale(0.6))
+	opacity: 0
+	visibility: hidden
+	&.visible
+		+transform(scale(1))
+		opacity: 1
+		visibility: visible
+	@media (max-width: $no-lightbox)
+		display: none		
+
+#close-lightbox-overlay
+	position: absolute
+	top: 0
+	left: 0
+	+size(100%)
+	z-index: 12
+
+#lightbox-content
+	display: inline-block
+	background-color: #333333
+	position: relative
+	z-index: 13
+	overflow: hidden
+
+#lightbox-img
+	float: left
+	position: relative
+	img
+		display: block
+		width: 500px
+
+#lightbox-tools
+	float: left
+	position: relative
+	span
+		display: block
+		padding: 20px
+		color: white
+		font-size: 20px
+		cursor: pointer
+		&:hover
+			color: goldenrod
+	span.icon-close
+		border-bottom: 1px solid #555555
+		margin-bottom: 20px
+	a:link, a:visited, a:hover, a:active
+		color: white
+		text-decoration: none
+	a:hover
+		color: goldenrod
+
+#lightbox-credit-toggle
+	position: absolute
+	bottom: 10px
+	right: 0
+	width: 59px
+	color: white
+	font-size: 24px
+	+user-select(none)
+	padding: 5px
+	span
+		cursor: pointer
+		&:hover
+			color: goldenrod	
+
+#lightbox-credit
+	background-color: #111111
+	font-family: "Lato", sans-serif
+	color: white
+	text-align: left
+	padding: 10px 15px
+	position: absolute
+	bottom: 0
+	left: 0
+	width: 100%
+	+transform(translateY(0))
+	+transition(all 0.4s ease)
+	&.hidden
+		+transform(translateY(100%))
+
+#lightbox-credit-text
+	span
+		color: #555
+
+
+#leaderboard
+	+size(728px 90px)
+	background-color: #222222
+	margin: 10px auto 30px auto
+	text-align: center
+	@media (max-width: 730px)
+		display: none
+
+//Tophat
+
+#tophat
+	height: 40px
+	overflow: hidden
+
+#logo
+	width: 250px
+	height: 100%
+	float: left
+	line-height: 43px
+	vertical-align: middle
+	img
+		margin: 0 10px
+		width: 90%
+		opacity: 0.5
+	@media (max-width: 400px)
+		width: 200px
+
+.tophat-share-tools
+	float: right
+	height: 100%
+	line-height: 35px
+	font-size: 24px
+	vertical-align: middle
+	color: #999
+	margin: 0 10px
+	text-align: center
+	span
+		cursor: pointer
+		vertical-align: middle
+		margin-right: 8px
+		&:hover
+			color: white
+	@media (max-width: 760px)
+		//margin-right: 45px
+		font-size: 18px
+		line-height: 40px
+
+
+
+footer
+	background-color: #333
+	padding: 80px
+	text-align: center
+	font-family: "Lato", sans-serif
+	img
+		width: 250px
+		opacity: 0.8
+		margin-top: 30px
+
+
+/***** CLEARFIX *****/
+
+.group:after
+	visibility: hidden
+	display: block
+	content: ""
+	clear: both
+	height: 0
+
+* html .group
+	zoom: 1
+
+*:first-child+html .group
+	zoom: 1
+

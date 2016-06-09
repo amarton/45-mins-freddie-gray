@@ -1,0 +1,374 @@
+@import "mixins"
+@import "variables"
+@import "bourbon"
+
+/********* SITE STYLES ***********/
+
+html
+	box-sizing: border-box
+
+*, *:before, *:after
+	box-sizing: inherit
+
+body
+	background-color: #111
+	font-family: "Lato", sans-serif
+
+$gold: #EECF00
+
+/* Tophat */
+
+#tophat
+	position: fixed
+	z-index: 10
+	width: 100%
+	height: 40px
+	overflow: hidden
+	// background-color: rgba(255,255,255,0.3)
+
+#logo
+	width: 250px
+	height: 100%
+	float: left
+	line-height: 43px
+	vertical-align: middle
+	img
+		margin: 0 10px
+		width: 90%
+	@media (max-width: 400px)
+		width: 200px
+
+.tophat-share-tools
+	float: right
+	height: 100%
+	line-height: 35px
+	font-size: 24px
+	vertical-align: middle
+	color: white
+	margin: 0 10px
+	text-align: center
+	span
+		cursor: pointer
+		vertical-align: middle
+		margin-right: 8px
+		&:hover
+			color: black
+	@media (max-width: 760px)
+		font-size: 18px
+		line-height: 40px
+
+
+
+/* Slider */
+
+
+#slides
+	position: absolute
+	top: 0
+	left: 0
+	+size(100%)
+	/* border: 1px solid red */
+	overflow: hidden
+	color: white
+			
+#slider
+	+size(100%)
+	+transform(translateY(0) translateZ(0))
+	+transition(all 0.5s ease)
+	position: relative
+
+.slide
+	+size(100%)
+	background-color: #111
+	position: relative
+	background-size: cover
+	z-index: 8
+
+
+#slide-1
+	background-image: url('../images/slides/splash-alt-ap.jpg')
+
+#slide-2
+	background-image: url('../images/slides/slide-1.jpg')
+
+#slide-3
+	background-image: url('../images/slides/slide-2.jpg')
+
+#slide-4
+	background-image: url('../images/slides/slide-3.jpg')
+
+#slide-5
+	background-image: url('../images/slides/slide-4.jpg')
+
+#slide-6
+	background-image: url('../images/slides/slide-5.jpg')
+
+#slide-7
+	background-image: url('../images/slides/slide-6.jpg')
+
+
+/* Info */
+
+$info-width: 400px
+
+#info
+	position: absolute
+	bottom: 80px
+	left: 80px
+	width: $info-width
+	padding: 10px 10px 20px 10px
+	background-color: black
+	background-color: rgba(0,0,0,0.7)
+	z-index: 9
+	opacity: 1
+	+transform(scale(1))
+	+transition(all 0.3s)
+	&.hidden
+		opacity: 0
+		+transform(scale(0.9))
+	&.splash
+		width: auto
+		background-color: transparent
+
+#time
+	font-family: "Oswald", "Lato", sans-serif
+	font-weight: 300
+	font-size: 42px
+	line-height: 1
+	span
+		font-size: 84px
+	&.hidden
+		display: none
+
+#location
+	font-family: "Oswald", "Lato", sans-serif
+	font-size: 22px
+	line-height: 1.2
+	color: $gold
+	text-transform: uppercase
+	margin: 10px 0
+	&.hidden
+		display: none
+
+#desc
+	//height: 150px
+	width: ($info-width - 20px)
+	p
+		margin: 0
+	.splash &
+		height: auto
+		background-color: black
+		background-color: rgba(0,0,0,0.7)
+#btns
+	margin-top: 10px
+	text-align: center
+	+user-select(none)
+	.splash &
+		width: $info-width
+		text-align: center
+
+.btn
+	display: inline-block
+	width: 40px
+	position: relative
+	text-align: center
+	font-size: 30px
+	cursor: pointer
+	margin-right: 15px
+	opacity: 1
+	visibility: visible
+	+transition(all 0.3s)
+	&:hover
+		color: $gold
+	&.inactive
+		opacity: 0.2
+		cursor: default
+		&:after
+			color: white
+	&:after
+		content: attr(data-label)
+		position: absolute
+		top: 100%
+		left: 0
+		width: 100%
+		color: $gold
+		font-family: "Oswald", "Lato", sans-serif
+		font-size: 10px
+
+.up, #map-btn, #video-btn
+	.splash &
+		display: none
+
+.down
+	.splash &
+		width: auto
+		font-size: 70px
+		line-height: 1
+		&:after
+			content: 'BEGIN'
+
+/* Splash */
+
+#splash
+	font-family: "Oswald", "Lato", sans-serif
+	&.hidden
+		display: none
+
+#tier-1
+	font-weight: 300
+	font-size: 60px
+	color: $gold
+	line-height: 1
+
+#tier-2
+	font-weight: 400
+	font-size: 86px
+	line-height: 1
+	margin-bottom: 10px
+
+
+/* Lightboxes */
+
+#overlay
+	position: absolute
+	top: 0
+	left: 0
+	+size(100%)
+	background-color: rgba(0,0,0,0.8)
+	z-index: 11
+	opacity: 1
+	visibility: visible
+	+transition(all 0.4s)
+	&.hidden
+		opacity: 0
+		visibility: hidden
+
+.lightbox
+	position: absolute
+	top: 50%
+	left: 50%
+	+transform(translateX(-50%) translateY(-50%))
+	+transition(all 0.4s ease)
+	background-color: white
+	z-index: 12
+	opacity: 1
+	visibility: visible
+	&.hidden
+		+transform(translateX(-50%) translateY(-60%))
+		opacity: 0
+		visibility: hidden
+
+#map
+	+size(800px 500px)
+	img
+		width: 100%
+	@media (max-width: 820px), (max-height: 600px)
+		+size(500px 312px)
+	@media (max-width: 550px), (max-height: 350px)
+		display: none
+
+
+#video
+	+size(800px 450px)
+	@media (max-width: 820px), (max-height: 600px)
+		display: none
+
+
+.close-lightbox
+	color: white
+	position: absolute
+	bottom: 100%
+	right: 5px
+	margin-bottom: 5px
+	font-size: 40px
+	line-height: 1
+	cursor: pointer
+	&:hover
+		color: $gold
+
+/* More coverage */
+
+#more-coverage
+	position: absolute
+	top: 70px
+	left: 0
+	width: 100%
+	z-index: 7
+	text-align: center
+	opacity: 1
+	visibility: visible
+	+transform(scale(1))
+	+transition(all 0.3s)
+	&.hidden
+		opacity: 0
+		visibility: hidden
+		+transform(scale(0.9))	
+	header
+		font-family: "Oswald", "Lato", sans-serif
+		font-size: 86px
+		font-weight: 300
+		line-height: 1.2
+		margin-bottom: 50px
+	ul
+		margin: 0
+		padding: 0
+		list-style: none
+		li
+			margin: 20px
+			padding: 0
+			font-family: "Lato", sans-serif
+			font-size: 16px
+			font-weight: 700
+			line-height: 1
+			text-transform: uppercase
+			a:link, a:visited, a:hover, a:active
+				color: $gold
+				text-decoration: none
+			a:hover
+				text-decoration: underline
+
+
+#end-btns
+	margin-top: 100px
+	.btn
+		width: auto
+		font-size: 40px
+		margin: 0 20px
+
+
+/* Credits */
+
+#credits
+	position: absolute
+	bottom: 10px
+	left: 0
+	width: 100%
+	color: white
+	text-align: center
+	font-family: "Oswald", "Lato", sans-serif
+	font-weight: 300
+	font-size: 16px
+	opacity: 1
+	visibility: visible
+	+transform(scale(1))
+	+transition(all 0.3s)
+	&.hidden
+		opacity: 0
+		visibility: hidden
+		+transform(scale(0.9))	
+
+/***** CLEARFIX *****/
+
+.group:after
+	visibility: hidden
+	display: block
+	content: ""
+	clear: both
+	height: 0
+
+* html .group
+	zoom: 1
+
+*:first-child+html .group
+	zoom: 1
+

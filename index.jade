@@ -1,0 +1,172 @@
+doctype html
+//if lt IE 7
+	<html class="no-js lt-ie9 lt-ie8 lt-ie7">
+//if IE 7
+	<html class="no-js lt-ie9 lt-ie8">
+//if IE 8
+	<html class="no-js lt-ie9">
+
+html(class="no-js", lang="en")
+
+	head
+
+		//Basic page needs
+		meta(charset="utf-8")
+		title The 45-minute mystery of Freddie Gray's death - The Baltimore Sun
+		meta(name="description", content="")
+		meta(name="author", content="")
+
+		//Mobile Specific Metas
+		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+
+		//CSS
+		link(rel="stylesheet", type="text/css", href="stylesheets/base.css")
+		link(rel="stylesheet", type="text/css", href="stylesheets/fonts.css")
+		link(rel="stylesheet", type="text/css", href="stylesheets/style.css")
+
+
+		//Javascript
+		script(src="scripts/modernizr.js")
+		script(src="scripts/jquery-1.10.2.min.js")
+		script(src="scripts/javascript.js")
+
+		//Fonts
+		link(rel="stylesheet", type="text/css", href="http://fonts.googleapis.com/css?family=Oswald:300,400")
+		link(rel="stylesheet", type="text/css", href="http://fonts.googleapis.com/css?family=Lato")
+		link(rel="stylesheet", type="text/css", href="https://s3.amazonaws.com/icomoon.io/42483/freddie-gray/style.css")
+
+		//Facebook Stuff
+		meta(property="og:title", content="The 45-minute mystery of Freddie Gray's death")
+		meta(property="og:url", content="http://data.baltimoresun.com/freddie-gray/")
+		meta(property="og:image", content="http://data.baltimoresun.com/freddie-gray/images/social.jpg")
+		meta(property="og:site_name", content="The Baltimore Sun")
+		meta(property="og:description", content="Follow the events on the day of Freddie Gray's arrest in this visual interactive")
+		meta(property="fb:app_id", content="310302989040998")
+
+		//Twitter Stuff
+		meta(name="twitter:card", content="summary")
+		meta(name="twitter:site", content="@baltimoresun")
+		meta(name="twitter:creator", content="")
+		meta(name="twitter:title", content="The 45-minute mystery of Freddie Gray's death")
+		meta(name="twitter:description", content="Follow the events on the day of Freddie Gray's arrest in this visual interactive")
+		meta(name="twitter:image", content="http://data.baltimoresun.com/freddie-gray/images/social.jpg")
+		meta(name="twitter:domain", content="baltimoresun.com")
+
+		//Omniture Code
+		include includes/omniture.html
+
+		//BS Ad Code
+		//include includes/ad-for-header.html
+
+		//Prefetch Slide Images
+		link(rel="prefetch" href="images/slides/slide-1.jpg")
+		link(rel="prefetch" href="images/slides/slide-2.jpg")
+		link(rel="prefetch" href="images/slides/slide-3.jpg")
+		link(rel="prefetch" href="images/slides/slide-4.jpg")
+		link(rel="prefetch" href="images/slides/slide-5.jpg")
+		link(rel="prefetch" href="images/slides/slide-6.jpg")
+
+		//And maps
+		link(rel="prefetch" href="images/maps/map-1.png")
+		link(rel="prefetch" href="images/maps/map-2.png")
+		link(rel="prefetch" href="images/maps/map-3.png")
+		link(rel="prefetch" href="images/maps/map-4.png")
+		link(rel="prefetch" href="images/maps/map-5.png")
+		link(rel="prefetch" href="images/maps/map-6.png")		
+
+	body
+		#tophat
+			.group
+			#logo
+				a(href="http://www.baltimoresun.com")
+					img(src="images/baltimore-sun-logo-white.png" border="0")
+			.tophat-share-tools
+				span.icon-facebook
+				span.icon-twitter
+		#slides
+			#slider
+				.slide(id="slide-1")
+					#mobile-title
+						#mobile-tier-1 THE 45-MINUTE MYSTERY OF
+						#mobile-tier-2 FREDDIE GRAY'S DEATH
+				.mobile-info
+					.mobile-desc			
+				- for (var i = 2; i <= 7; i++)
+					.slide(id="slide-#{i}")
+					.mobile-info
+						.mobile-time <span></span> A.M.
+						.mobile-location
+						.mobile-desc
+						.mobile-video(data-ref="#{i}") <span class="icon-video2"></span> SEE VIDEO OF EYEWITNESS ACCOUNT						
+			#info.hidden.splash
+				#splash
+					#tier-1 THE 45-MINUTE MYSTERY OF
+					#tier-2 FREDDIE GRAY'S DEATH
+				#time.hidden <span></span> A.M.
+				#location
+				#desc
+					p
+				#btns
+					.up.btn.direction(data-label="PREV")
+						span.icon-arrow-up
+					#map-btn.btn(data-label="MAP")
+						span.icon-map
+					#video-btn.btn(data-label="VIDEO")
+						span.icon-video
+					.down.btn.direction(data-label="NEXT")
+						span.icon-arrow-down
+			#overlay.hidden
+			#map.lightbox.hidden
+				img(src="")
+				.close-lightbox
+					span.icon-close
+			#video.lightbox.hidden
+				iframe(scrolling="no" seamless="seamless")
+				.close-lightbox
+					span.icon-close
+			#mobile-video.lightbox.hidden
+				iframe(scrolling="no" seamless="seamless")
+				.close-lightbox
+					span.icon-close			
+			#more-coverage.hidden
+				header MORE COVERAGE
+				ul
+					// li
+					// 	a(href="#") The 45-minute mystery of Freddie Gray's DEATH
+					// li
+					// 	a(href="#") Fact-checking the Freddie Gray narrative
+					li
+						a(href="http://data.baltimoresun.com/news/freddie-gray/") Timeline: Freddie Gray's arrest, death and the aftermath
+					li
+						a(href="http://www.baltimoresun.com/news/maryland/baltimore-city/bal-map-freddie-gray-arrest-timeline-20150421-htmlstory.html") Map: Freddie Gray arrest timeline
+					li
+						a(href="http://www.baltimoresun.com/news/maryland/baltimore-city/bal-baltimore-sun-coverage-of-freddie-gray-20150420-storygallery.html") Full Freddie Gray coverage from The Baltimore Sun
+				#end-btns
+					.up.btn.direction(data-label="PREV")
+						span.icon-arrow-up
+					#restart-btn.btn(data-label="RESTART")
+						span.icon-restart
+			#credits.hidden
+				div WRITTEN BY KEVIN RECTOR
+				div VIDEO BY AMY DAVIS AND CATHERINE RENTZ
+				div PHOTOS BY AMY DAVIS AND KENNETH K. LAM
+				div INTERACTIVE CREATED BY GREG KOHN AND ADAM MARTON
+				// div PHOTOS: AMY DAVIS, BALTIMORE SUN; DREW ANGERER/GETTY IMAGES
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

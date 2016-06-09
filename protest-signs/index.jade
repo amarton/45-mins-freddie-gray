@@ -1,0 +1,109 @@
+doctype html
+//if lt IE 7
+	<html class="no-js lt-ie9 lt-ie8 lt-ie7">
+//if IE 7
+	<html class="no-js lt-ie9 lt-ie8">
+//if IE 8
+	<html class="no-js lt-ie9">
+
+html(class="no-js", lang="en")
+
+	head
+
+		//Basic page needs
+		meta(charset="utf-8")
+		title Signs of the Freddie Gray Protests - Baltimore Sun
+		meta(name="description", content="Check out signs from the Baltimore and national protests inspired by Freddie Gray")
+		meta(name="author", content="The Baltimore Sun")
+
+		//Mobile Specific Metas
+		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+
+		//CSS
+		link(rel="stylesheet", type="text/css", href="stylesheets/base.css")
+		link(rel="stylesheet", type="text/css", href="stylesheets/fonts.css")
+		link(rel="stylesheet", type="text/css", href="stylesheets/style.css")
+
+
+		//Javascript
+		//-script(src="scripts/modernizr.js")
+		script(src="scripts/jquery-1.10.2.min.js")
+		script(src="scripts/javascript.js")
+
+		//Fonts
+		link(rel="stylesheet", type="text/css", href="http://fonts.googleapis.com/css?family=Oswald:300,400")
+		link(rel="stylesheet", type="text/css", href="http://fonts.googleapis.com/css?family=Lato")
+
+		//Facebook Stuff
+		meta(property="og:title", content="Signs of the Freddie Gray protests")
+		meta(property="og:url", content="http://data.baltimoresun.com/freddie-gray/protest-signs/")
+		meta(property="og:image", content="http://data.baltimoresun.com/freddie-gray/protest-signs/images/600/justice.jpg")
+		meta(property="og:site_name", content="The Baltimore Sun")
+		meta(property="og:description", content="Check out signs from the Baltimore and national protests inspired by Freddie Gray")
+		meta(property="fb:app_id", content="310302989040998")
+
+		//Twitter Stuff
+		meta(name="twitter:card", content="summary")
+		meta(name="twitter:site", content="@baltimoresun")
+		meta(name="twitter:creator", content="")
+		meta(name="twitter:title", content="Signs of the Freddie Gray protests")
+		meta(name="twitter:description", content="Check out signs from the Baltimore and national protests inspired by Freddie Gray")
+		meta(name="twitter:image", content="http://data.baltimoresun.com/freddie-gray/protest-signs/images/600/justice.jpg")
+		meta(name="twitter:domain", content="baltimoresun.com")
+
+		//Omniture Code
+		include includes/omniture.html
+
+		//BS Ad Code
+		include includes/ad-for-header.html
+
+	body
+		#tophat
+			.group
+			#logo
+				a(href="http://www.baltimoresun.com")
+					img(src="images/baltimore-sun-logo-white.png" border="0")
+			.tophat-share-tools
+				span.icon-facebook
+				span.icon-twitter
+		#header
+			#title Signs of the Freddie Gray Protests
+			#subtitle
+				a(href="http://darkroom.baltimoresun.com/2015/04/the-signs-of-the-baltimore-protests/") See the full Darkroom gallery >>
+		#lightbox-overlay
+		#lightbox
+			#close-lightbox-overlay
+			#lightbox-content
+				.group
+					#lightbox-img
+						img(src="")
+						#lightbox-credit
+							#lightbox-credit-text
+					#lightbox-tools(data-slug="")
+						span.icon-close
+						span.icon-twitter2
+						span.icon-facebook2
+					#lightbox-credit-toggle
+						span.icon-arrow-down3
+		#grids
+			#baltimore.grid
+				header BALTIMORE PROTESTS
+			#national.grid
+				header NATIONAL PROTESTS
+
+		#leaderboard
+			include includes/ad-for-body.html
+		footer
+			a(href="http://www.baltimoresun.com/news/maryland/freddie-gray/") SEE FULL COVERAGE
+			#credits Design &amp; Development:
+				ul
+					li Greg Kohn
+					li Emma Patti Harris
+			img(src="images/baltimore-sun-logo-white.png")
+
+
+
+
+
+
+
